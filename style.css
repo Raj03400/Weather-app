@@ -1,0 +1,467 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  /* --bac-color: #2a2b2d; */
+  --pri-color: #191919;
+  --sec-color: #750e21;
+  --ter-color: #e3651d;
+  --bg-col1: #212529;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--pri-color);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em;
+  background-color: var(--bg-col1);
+  color: #fff;
+}
+
+nav h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  gap: 2rem;
+}
+
+.search-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e6e6e6;
+  padding-left: 0.5rem;
+  border-radius: 1.8rem;
+  outline: none;
+  border: none;
+}
+
+.search-items input {
+  flex: 1;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  padding: 0.625rem;
+  background: transparent;
+}
+
+.red-placeholder::placeholder {
+  color: red;
+}
+
+nav .search-items #search_btn {
+  border-radius: 1.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 1rem 3rem;
+  background-color: var(--ter-color);
+  cursor: pointer;
+  user-select: none;
+}
+
+nav #location-btn {
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 1.8rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 1rem 3rem;
+  background-color: var(--sec-color);
+  cursor: pointer;
+  user-select: none;
+}
+
+main {
+  overflow: hidden;
+}
+
+.card {
+  min-height: 300px;
+  grid-column: span 1;
+  background-color: #750e21;
+  padding: 2em;
+  border-radius: 3rem;
+  margin: 2em;
+}
+
+.card p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.card .temp-heading {
+  font-size: 4rem;
+  margin-bottom: 0.2em;
+  font-weight: bolder;
+}
+
+.card h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1em;
+}
+
+.weather-icon img {
+  width: 150px;
+}
+
+.weather-data {
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.weather-data .weather-left {
+  grid-column: span 1;
+}
+
+.weather-left .current-weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details-foot p {
+  font-size: 1.6rem;
+  margin: 0.5em 0em 1.2em 0em;
+}
+
+.forecast-item {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  margin-bottom: 1.5em;
+}
+
+.forecast-item .icon-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.forecast-item .icon-wrapper img {
+  width: 70px;
+}
+
+.forecast-item .icon-wrapper h4 {
+  font-size: 1.8rem;
+}
+
+.weather-right {
+  grid-column: span 3;
+}
+
+.weather-right h2 {
+  font-size: 2.4rem;
+  margin-top: 1em;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: 1.5em;
+}
+#today-heading {
+  margin-left: 1.5em;
+}
+.highlights .card-items {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1em;
+}
+
+.highlights .card-items .widget {
+  min-height: 150px;
+  background-color: #e3651d;
+  /* text-align: center; */
+  border-radius: 2rem;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.widget h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5em;
+}
+
+.widget img {
+  width: 100px;
+}
+
+.days-heading {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.celestial {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+}
+
+.seperator {
+  height: 200px;
+  border-right: 2px solid;
+}
+
+.sunrise-sunset,
+.moonrise-moonset {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+}
+
+.icon img {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.item:nth-of-type(1),
+.item:nth-of-type(2) {
+  text-align: center;
+  margin: 0.5em 0em;
+}
+
+.hourly-forecast {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: 1em;
+  padding: 2em;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.hourly-forecast .hour {
+  background-color: #e3651d;
+  padding: 2em;
+  border-radius: 2rem;
+  margin: 4em 0em;
+  text-align: center;
+}
+
+.hour p {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.hourly-forecast::-webkit-scrollbar {
+  display: none;
+}
+
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+
+#suggestions-container {
+  width: fit-content;
+  height: 250px;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 1em;
+  border-bottom: none;
+  border-top: none;
+  z-index: 1000;
+  top: 100%;
+  left: 50;
+  right: 50;
+  overflow-y: scroll;
+}
+.suggestion {
+  font-size: 1.8rem;
+  padding: 1.5rem;
+  color: #000;
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+.driver-popover.driverjs-theme {
+  background-color: var(--bg-col1);
+  margin-bottom: 4em;
+  color: #fff;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title {
+  font-size: 20px;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title,
+.driver-popover.driverjs-theme .driver-popover-description,
+.driver-popover.driverjs-theme .driver-popover-progress-text {
+  color: #fff;
+}
+
+.driver-popover.driverjs-theme button {
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  text-shadow: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px;
+  transition: ease-in 0.2s;
+  border-radius: 6px;
+}
+
+/* styling of driver.js library for tour */
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+  color: #000;
+  padding: 0px !important;
+  margin: 5px 8px 20px 0px;
+  /* margin-bottom: 2em; */
+}
+
+.driver-popover.driverjs-theme
+  .driver-popover-arrow-side-left.driver-popover-arrow {
+  border-left-color: #fde047;
+}
+
+/*   
+  .driver-popover.driverjs-theme .driver-popover-arrow-side-right.driver-popover-arrow {
+    border-right-color: #fde047;
+  }
+  
+  .driver-popover.driverjs-theme .driver-popover-arrow-side-top.driver-popover-arrow {
+    border-top-color: #fde047;
+  }
+  
+  .driver-popover.driverjs-theme .driver-popover-arrow-side-bottom.driver-popover-arrow {
+    border-bottom-color: #fde047;
+  } */
+/* Larger Desktops and Laptops */
+@media (max-width: 1200px) {
+  .weather-data {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .weather-right {
+    grid-column: span 2;
+  }
+
+  .highlights .card-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Tablets and Smaller Laptops */
+@media (max-width: 1024px) {
+  .weather-data {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .weather-right {
+    grid-column: span 2;
+  }
+
+  .highlights .card-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hourly-forecast {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Large Smartphones */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-items {
+    width: 100%;
+  }
+
+  #location-btn {
+    width: 100%;
+  }
+
+  .weather-data {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-right {
+    grid-column: span 1;
+  }
+
+  .highlights .card-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hourly-forecast {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .celestial {
+    flex-direction: column;
+  }
+
+  .seperator {
+    display: none;
+  }
+}
+
+/* Small Smartphones */
+@media (max-width: 576px) {
+  :root {
+    font-size: 55%;
+    /* Slightly reduce base font size */
+  }
+
+  .card {
+    margin: 1.5em;
+    padding: 2em;
+  }
+
+  .highlights .card-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hourly-forecast {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sunrise-sunset,
+  .moonrise-moonset {
+    gap: 1rem;
+  }
+}
